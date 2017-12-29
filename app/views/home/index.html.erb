@@ -1,0 +1,28 @@
+<p>
+<%= link_to 'Create new Project', new_project_path %>
+</p>
+<p>
+<%= link_to 'All Projects', projects_path %>
+</p>
+
+<p>
+<%= link_to 'Create Team', new_team_path %>
+</p>
+
+<%if Team.first.present?%>
+<p>
+<%= link_to 'Add Team Members', add_member_path %>
+</p>
+<p>
+<%= link_to 'Team and Members', team_members_path %>
+</p>
+
+
+<p>
+<%= link_to 'Assign Project to Team', assign_project_path %>
+</p>
+
+<p>
+<%= link_to 'All Assigned Project to Team', assigned_project_path %>
+</p>
+<%end%>

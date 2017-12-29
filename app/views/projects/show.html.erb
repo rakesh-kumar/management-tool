@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Descriptions:</strong>
+  <%= @project.descriptions %>
+</p>
+
+<p>
+  <strong>Technology:</strong>
+  <%= @project.technology %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= image_tag @project.document %>
+</p>
+
+<p>
+  <strong>Project type:</strong>
+  <%= @project.project_type %>
+</p>
+
+<p>
+  <strong>Client name:</strong>
+  <%= @project.client_name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @project.end_date %>
+</p>
+
+<% if @project.tasks.first.present? %>
+      <% @project.tasks.each do |task|%>
+      <p>
+      <%@task = task%>
+      <strong>Task:</strong>
+       <%=task.name%>
+       <%= link_to 'Edit Task', edit_project_task_path(@project,task)%>
+       <%= link_to 'Destroy Task', project_task_path(@project,task),  method: :delete, data: { confirm: 'Are you sure?' } %>
+       </p>
+
+
+       <% if task.dependencies.first.present? %>
+          
+           <% task.dependencies.each do |dependency| %>
+              
+              <p>
+                <strong>Dependency:</strong>
+                <%= dependency.name%>
+                 <%= link_to 'Edit Dependency', edit_project_task_dependency_path(@project,task, dependency)%>
+                 <%= link_to 'Destroy Dependency', project_task_dependency_path(@project,task, dependency),  method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+           <% end %>
+       <% end %>
+      
+       <%= render 'dependencies/form'%>
+      
+      
+      <%end%>
+<% end %>
+
+
+<%= render 'tasks/form'%>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
