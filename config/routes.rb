@@ -16,6 +16,15 @@ get 'team/members', :to => 'home#team_and_members'
 get 'assign/project', :to => 'home#assign_project_form'
 post 'assign/project/submit', :to => 'home#assign_project_submit'
 get 'assigned/project', :to => 'home#assigned_project_to_team'
+get 'assign/project/team_member', :to => 'home#assign_project_to_team_member_form'
+post 'assign/project/team_member/submit', :to => 'home#assign_project_to_team_member_submit'
+
+post 'project/task/submit', :to => 'home#project_task_submit'
+get 'all/assigned_task', :to => 'home#all_assigned_task'
+
+
+
+
 
 
 

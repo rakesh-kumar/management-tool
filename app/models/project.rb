@@ -3,4 +3,7 @@ class Project < ApplicationRecord
     has_many :tasks
     has_many :project_teams
      has_many :teams, through: :project_teams
+
+     has_many :user_projects
+     has_many :users, through: :user_projects 
 end

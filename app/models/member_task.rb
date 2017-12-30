@@ -1,0 +1,2 @@
+class MemberTask < ApplicationRecord
+end
