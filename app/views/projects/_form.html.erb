@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :project_name %>
+    <%= form.text_field :name, id: :project_name, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :descriptions %>
-    <%= form.text_area :descriptions, id: :project_descriptions %>
+    <%= form.text_area :descriptions, id: :project_descriptions, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :technology %>
-    <%= form.text_field :technology, id: :project_technology %>
+    <%= form.select(:technology_id, Technology.all.collect {|u| [u.name, u.id]}, :prompt => 'Select', required: true)%>
   </div>
 
   <div class="field">
@@ -33,26 +33,23 @@
 
   <div class="field">
     <%= form.label :project_type %>
-    <%#= form.text_field :project_type, id: :project_project_type %>
-    <select name="project_type">
-        <option value="Fixed Price">Fixed Price</option>
-        <option value="Time & Material">Time & Material</option>
-    </select>
+    <%= form.select(:project_type_id, ProjectType.all.collect {|u| [u.name, u.id]}, :prompt => 'Select', required: true) %>
+
   </div>
 
   <div class="field">
     <%= form.label :client_name %>
-    <%= form.text_field :client_name, id: :project_client_name %>
+    <%= form.select(:client_id, Client.all.collect {|u| [u.name, u.id]}, :prompt => 'Select', required: true)%>
   </div>
 
  <div class="field">
     <%= form.label :start_date %>
-    <%= form.date_field :start_date, id: :project_start_date %>
+    <%= form.text_field :start_date, id: 'datetimepicker1', required: true %>
   </div>
 
    <div class="field">
     <%= form.label :end_date %>
-    <%= form.date_field :end_date, id: :project_end_date %>
+    <%= form.text_field :end_date, id: 'datetimepicker2', required: true  %>
   </div>
 
   <div class="actions">

@@ -12,4 +12,17 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+    	format: 'DD-MMM-YYYY'
+    });
+    $('#datetimepicker2').datetimepicker({
+    	format: 'DD-MMM-YYYY'
+    });
+});
+        

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  resources :technologies
+  resources :clients
+  resources :project_types
   resources :teams
   resources :projects do
        resources :tasks do

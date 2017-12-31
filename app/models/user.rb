@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   has_many :user_projects
   has_many :projects, through: :user_projects   
+
+  has_many :admin_projects, :class_name => "Project",  :foreign_key => 'user_id',  
+    :dependent => :destroy
 end

@@ -22,10 +22,10 @@
       <tr>
         <td><%= project.name %></td>
         <td><%= project.descriptions %></td>
-        <td><%= project.technology %></td>
+        <td><%= project.technology.name %></td>
         <td><%= image_tag project.document %></td>
-        <td><%= project.project_type %></td>
-        <td><%= project.client_name %></td>
+        <td><%= project.project_type.name %></td>
+        <td><%= project.client.name %></td>
         <td><%= project.start_date %></td>
         <td><%= project.end_date %></td>
         <td><%= link_to 'Show', project %></td>
